@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #070c14;
+    --foreground: #ebf0f7;
+    --primary: #93b5e3;
+    --primary-foreground: #070c14;
+    --secondary: #1a4888;
+    --secondary-foreground: #ebf0f7;
+    --accent: #317de5;
+    --muted: #1a488899;
+    --muted-foreground: #ebf0f7;
+    --card: #0d1930;
+    --card-foreground: #ebf0f7;
+    --border: #1a4888;
+    --radius: 0.5rem;
+    --destructive: #FC0019;
+    --destructive-foreground: #fff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none;
+    }
+    
+    /* Allow cursor in modal overlays and interactive elements */
+    .modal-overlay *,
+    button,
+    [role="button"],
+    input,
+    textarea,
+    select {
+      cursor: auto;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', 'DM Sans', ui-sans-serif, system-ui;
+    letter-spacing: 0.01em;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Inter', 'DM Sans', ui-sans-serif, system-ui;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .retro-btn {
+    @apply px-7 py-3 rounded-xl font-bold shadow-lg border bg-primary text-primary-foreground transition-all duration-300;
+    box-shadow: 0 0 18px 2px #317de580;
+  }
+  .retro-btn:hover {
+    background: #317de5;
+    color: #ebf0f7;
+    box-shadow: 0 0 28px 8px #317de588;
+    letter-spacing: 0.04em;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-8 mb-4 text-accent;
+  }
+
+  .prose p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside space-y-1 mb-4;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #317de540;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #317de580;
+}

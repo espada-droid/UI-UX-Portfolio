@@ -1,0 +1,1 @@
+This is my first try on my personal portfolio, hope you like this and it makes you hire me!
